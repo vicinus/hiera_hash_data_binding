@@ -24,6 +24,7 @@ class Puppet::Indirector::HieraHash < Puppet::Indirector::Terminus
     request_class_name, *b, request_param = request.key.rpartition('::')
     if @class_name.nil? or @class_name != request_class_name
       @class_params = hiera.lookup(request_class_name, {}, Hiera::Scope.new(request.options[:variables]), nil, :hash)
+      @class_name = request_class_name
     end
     @class_params[request_param]
   rescue *DataBindingExceptions => detail
