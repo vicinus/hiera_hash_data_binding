@@ -23,10 +23,13 @@ class Puppet::Indirector::HieraHash < Puppet::Indirector::Terminus
   def find(request)
     request_class_name, *b, request_param = request.key.rpartition('::')
     if @class_name.nil? or @class_name != request_class_name
+      if ! @class_params.empty?
+        Puppet.warning "Unused loaded hiera parameters for class #{@class_name}: '#{@class_params.keys.join("' '")}'."
+      end
       @class_params = hiera.lookup(request_class_name, {}, Hiera::Scope.new(request.options[:variables]), nil, :hash)
       @class_name = request_class_name
     end
-    @class_params[request_param]
+    @class_params.delete(request_param)
   rescue *DataBindingExceptions => detail
     raise Puppet::DataBinding::LookupError.new(detail.message, detail)
   end
