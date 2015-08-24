@@ -1,0 +1,13 @@
+{
+  "name": "vicinus-hiera_hash_data_binding",
+  "version": "0.1.0",
+  "author": "vicinus",
+  "summary": "Drop-in replacement for the Hiera data binding terminus.",
+  "license": "Apache 2.0",
+  "source": "https://github.com/vicinus/hiera_hash_data_binding.git",
+  "project_page": "https://github.com/vicinus/hiera_hash_data_binding",
+  "issues_url": "https://github.com/vicinus/hiera_hash_data_binding/issues",
+  "dependencies": [
+  ]
+}
+
