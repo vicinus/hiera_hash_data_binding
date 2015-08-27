@@ -32,7 +32,7 @@ ntp:
 
 * Not official supported
 * Hiera data must be converted
-* Hiera version 1.x doesn't support segmented keys to look up values in hashes and arrays, so a workaround has to be used
+* Hiera version 1.x doesn't support segmented keys to look up values in hashes and arrays, so a workaround has to be used to access class parameters in hiera
 
 ## Installation
 
