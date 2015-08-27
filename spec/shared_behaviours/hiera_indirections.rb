@@ -3,6 +3,7 @@ shared_examples_for "Hiera indirection" do |test_klass, fixture_dir|
   include PuppetSpec::Files
 
   def write_hiera_config(config_file, datadir)
+    print "config_file: #{config_file} datadir: #{datadir}\n"
     File.open(config_file, 'w') do |f|
       f.write("---
         :yaml:
@@ -35,7 +36,7 @@ shared_examples_for "Hiera indirection" do |test_klass, fixture_dir|
   it "should raise an error if we don't have the hiera feature" do
     Puppet.features.expects(:hiera?).returns(false)
     expect { test_klass.new }.to raise_error RuntimeError,
-      "Hiera terminus not supported without hiera library"
+      "HieraHash terminus not supported without hiera library"
   end
 
   describe "the behavior of the hiera_config method", :if => Puppet.features.hiera? do

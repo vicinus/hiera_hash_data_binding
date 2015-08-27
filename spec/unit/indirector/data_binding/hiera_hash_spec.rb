@@ -14,7 +14,7 @@ describe Puppet::DataBinding::HieraHash do
   end
 
   it "should have its name set to :hierahash" do
-    expect(Puppet::DataBinding::Hiera.name).to eq(:hierahash)
+    expect(Puppet::DataBinding::HieraHash.name).to eq(:hiera_hash)
   end
 
   it_should_behave_like "Hiera indirection", Puppet::DataBinding::HieraHash, my_fixture_dir

@@ -4,7 +4,8 @@ require 'tmpdir'
 require 'pathname'
 
 # A support module for testing files.
-module PuppetSpec::Files
+module PuppetSpec
+module Files
   def self.cleanup
     $global_tempfiles ||= []
     while path = $global_tempfiles.pop do
@@ -100,4 +101,5 @@ module PuppetSpec::Files
     end
     expect(actual_mode).to eq(target_mode)
   end
+end
 end
